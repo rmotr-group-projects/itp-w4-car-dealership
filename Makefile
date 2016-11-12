@@ -8,6 +8,18 @@ PROJECT_PACKAGE=dealership
 test:
 	@echo $(TAG)Running tests$(END)
 	PYTHONPATH=. py.test -s tests
+	
+test-vehicles:
+	@echo $(TAG)Running tests$(END)
+	PYTHONPATH=. py.test -s tests/test_vehicles.py
+
+test-contracts:
+	@echo $(TAG)Running tests$(END)
+	PYTHONPATH=. py.test -s tests/test_contracts.py
+	
+test-customers:
+	@echo $(TAG)Running tests$(END)
+	PYTHONPATH=. py.test -s tests/test_customers.py
 
 test-cov:
 	@echo $(TAG)Running tests with coverage$(END)
