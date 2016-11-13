@@ -16,3 +16,5 @@ class CustomerTestCase(unittest.TestCase):
         self.assertEqual(e.last_name, 'Doe')
         self.assertEqual(e.email, 'jane@example.com')
         self.assertTrue(e.is_employee())
+
+#PYTHONPATH=. py.test -s tests/test_customers.py::CustomerTestCase::test_if_are_employee
