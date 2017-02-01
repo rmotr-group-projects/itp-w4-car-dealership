@@ -1,5 +1,5 @@
-from vehicles import Vehicle
-from customers import Person
+#from vehicles import Vehicle
+#from customers import Person
 
 class Contract(object):
 
