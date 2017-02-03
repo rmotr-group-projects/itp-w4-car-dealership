@@ -5,15 +5,11 @@ class Person(object):
         self.email = email
         
     def is_employee(self):
-        return self.is_emp
+        return self.IS_EMP
         
 class Customer(Person):
-    def __init__(self, first_name, last_name, email):
-        super(Customer, self).__init__(first_name, last_name, email)
-        self.is_emp = False
+        IS_EMP = False
       
         
 class Employee(Person):
-    def __init__(self, first_name, last_name, email):
-        super(Employee, self).__init__(first_name, last_name, email)
-        self.is_emp = True
+        IS_EMP = True

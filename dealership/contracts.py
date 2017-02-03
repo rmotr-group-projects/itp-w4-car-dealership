@@ -1,6 +1,3 @@
-#from vehicles import Vehicle
-#from customers import Person
-
 class Contract(object):
 
     def employee_discount(self):
@@ -15,7 +12,7 @@ class BuyContract(Contract):
     
     def total_value(self):
         price = ((self.vehicle.sale_price() 
-        + (self.vehicle.interest_rate * self.monthly_payments 
+        + (self.vehicle.INTEREST_RATE * self.monthly_payments 
         * self.vehicle.sale_price() / 100 ))
         * self.employee_discount())
         return price
@@ -33,7 +30,7 @@ class LeaseContract(Contract):
     def total_value(self):
         price = (self.vehicle.sale_price() 
         + (self.vehicle.sale_price() 
-        * (self.vehicle.lease_rate / self.length_in_months)) 
+        * (self.vehicle.LEASE_RATE / self.length_in_months)) 
         * self.employee_discount())
         return price 
         

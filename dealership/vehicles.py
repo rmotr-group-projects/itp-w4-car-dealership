@@ -7,34 +7,28 @@ class Vehicle(object):
         self.miles = miles
         
     def sale_price(self):
-        return self.base_price * self.sale_rate
+        return self.base_price * self.SALE_RATE
         
     def purchase_price(self):
-        return self.sale_price() - (self.purchase_rate * self.miles)
+        return self.sale_price() - (self.PURCHASE_RATE * self.miles)
     
 
 class Car(Vehicle):
-    def __init__(self, maker, model, year, base_price, miles):
-        super(Car,self).__init__(maker, model, year, base_price, miles)
-        self.sale_rate = 1.2
-        self.purchase_rate = 0.004  
-        self.interest_rate = 1.07
-        self.lease_rate = 1.2
+    SALE_RATE = 1.2
+    PURCHASE_RATE = 0.004  
+    INTEREST_RATE = 1.07
+    LEASE_RATE = 1.2
 
 
 class Motorcycle(Vehicle):
-    def __init__(self, maker, model, year, base_price, miles):
-        super(Motorcycle,self).__init__(maker, model, year, base_price, miles)
-        self.sale_rate = 1.1 
-        self.purchase_rate = 0.009 
-        self.interest_rate = 1.03
-        self.lease_rate = 1.0
+    SALE_RATE = 1.1 
+    PURCHASE_RATE = 0.009 
+    INTEREST_RATE = 1.03
+    LEASE_RATE = 1.0
 
 
 class Truck(Vehicle):
-    def __init__(self, maker, model, year, base_price, miles):
-        super(Truck,self).__init__(maker, model, year, base_price, miles)
-        self.sale_rate = 1.6 
-        self.purchase_rate = 0.02 
-        self.interest_rate = 1.11
-        self.lease_rate = 1.7
+    SALE_RATE = 1.6 
+    PURCHASE_RATE = 0.02 
+    INTEREST_RATE = 1.11
+    LEASE_RATE = 1.7
