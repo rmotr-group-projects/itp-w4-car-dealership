@@ -2,24 +2,23 @@ class Contract(object):
     def __init__(self, vehicle, customer):
         self.vehicle = vehicle
         self.customer = customer
+    
+
 
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
         super(BuyContract, self).__init__(vehicle, customer)
         self.monthly_payments = monthly_payments
         
-    def total_value(self):
-        total = self.vehicle.sale_price() + (self.vehicle.INTEREST_RATE * self.monthly_payments * self.vehicle.sale_price() /100)
-        if self.customer.is_employee():
-            total = total * 0.9
-        return total
-
-    def monthly_value(self):
-        return self.total_value() / self.monthly_payments
+        def total_value():
+            total = vehicle.sale_price() + (vehicle.INTEREST_RATE * monthly_payments * vehicle.sale_price() /100)
+            if customer.is_employee():
+                total = total * 0.9
+            return total
 
 class LeaseContract(Contract):
     def __init__(self, vehicle, customer, length_in_months):
-        super(LeaseContract, self).__init__(vehicle, customer)
+        super(LeaseContract).__init__(vehicle, customer)
         self.length_in_months = length_in_months 
         
     def total_value(self):
@@ -27,6 +26,9 @@ class LeaseContract(Contract):
         if self.customer.is_employee():
             total = total * 0.9
         return total
-    
-    def monthly_value(self):
-        return self.total_value() / self.length_in_months
+'''
+total_value
+vehicle.sale_price() + (lease_multiplier) - (discount if employee)
+lease multiplyer
+sale_price() + (sale_price() * LEASE_MULTIPLIER / length_in_months)
+lease multiplyer
