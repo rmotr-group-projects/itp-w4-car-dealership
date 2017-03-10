@@ -69,7 +69,7 @@ class BuyContractTestCase(BaseContractTestCase):
 
 
 class LeaseContractTestCase(BaseContractTestCase):
-    def test_buy_contract_total_value_with_customer(self):
+    def test_lease_contract_total_value_with_customer(self):
         car_contract = LeaseContract(
             vehicle=self.car, customer=self.customer, length_in_months=12)
 
@@ -91,3 +91,28 @@ class LeaseContractTestCase(BaseContractTestCase):
             bike_contract.total_value(), 20350, places=2)
         self.assertAlmostEqual(
             bike_contract.monthly_value(), 565.27, places=1)
+
+    def test_lease_contract_total_value_with_employee(self):
+        car_contract = LeaseContract(
+            vehicle = self.car, customer = self.employee, length_in_months = 18)
+            
+        self.assertAlmostEqual(
+            car_contract.total_value(), 20736.0, places=3)
+        self.assertAlmostEqual(
+            car_contract.monthly_value(), 1152, places=3)
+        
+        truck_contract = LeaseContract(
+            vehicle = self.truck, customer = self.employee, length_in_months = 36)
+            
+        self.assertAlmostEqual(
+            truck_contract.total_value(), 43732, places=3)
+        self.assertAlmostEqual(
+            truck_contract.monthly_value(), 1214.78, places=3)
+        
+        bike_contract = LeaseContract(
+            vehicle = self.bike, customer = self.employee, length_in_months = 12)
+            
+        self.assertAlmostEqual(
+            bike_contract.total_value(), 19305.0, places=3)
+        self.assertAlmostEqual(
+            bike_contract.monthly_value(), 1608.75, places=3)
