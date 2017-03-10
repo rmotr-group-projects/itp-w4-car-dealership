@@ -1,15 +1,31 @@
 class Vehicle(object):
     def __init__(self, maker, model, year, base_price, miles):
-        pass
+        self.maker = maker
+        self.model = model
+        self.year = year
+        self.base_price = base_price
+        self.miles = miles
 
 
 class Car(Vehicle):
-    pass
+    def sale_price(self):
+        return self.base_price * 1.2
+    
+    def purchase_price(self):
+        return Car.sale_price(self) - (0.004 * self.miles)
 
 
 class Motorcycle(Vehicle):
-    pass
+    def sale_price(self):
+        return self.base_price * 1.1
+    
+    def purchase_price(self):
+        return Motorcycle.sale_price(self) - (0.009 * self.miles)
 
 
 class Truck(Vehicle):
-    pass
+    def sale_price(self):
+        return self.base_price * 1.6
+    
+    def purchase_price(self):
+        return Truck.sale_price(self) - (0.02 * self.miles)
