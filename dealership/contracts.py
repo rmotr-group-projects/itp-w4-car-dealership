@@ -1,12 +1,43 @@
 class Contract(object):
-    pass
+    def __init__(self, 
+                 vehicle, 
+                 customer, 
+                 monthly_payments = None, 
+                 length_in_months = None):
+        self.vehicle = vehicle
+        self.customer = customer
+        self.month = monthly_payments or length_in_months
 
 
 class BuyContract(Contract):
-    def __init__(self, vehicle, customer, monthly_payments):
-        pass
+    interest_multi = 1
+    
+    def total_value(self):
+        base_sale = (self.vehicle.sale_price() 
+                     + (self.vehicle.interest_multi 
+                     * self.month
+                     * self.vehicle.sale_price())
+                     / 100)
+        if self.customer.employee:
+            return base_sale * 0.9
+        return base_sale
+            
+    def monthly_value(self):
+        return self.total_value() / self.month
 
 
 class LeaseContract(Contract):
-    def __init__(self, vehicle, customer, length_in_months):
-        pass
+    lease_multi = 1
+    
+    def total_value(self):
+        base_sale = (self.vehicle.sale_price()
+                     + (self.vehicle.sale_price() 
+                     * self.vehicle.lease_multi)
+                     / self.month)
+        if self.customer.employee:
+            return base_sale * 0.9
+        return base_sale
+            
+    def monthly_value(self):
+        return round(self.total_value() / self.month, 2)
+
