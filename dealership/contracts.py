@@ -7,6 +7,9 @@ class Contract(object):
         self.vehicle = vehicle
         self.customer = customer
         self.month = monthly_payments or length_in_months
+        
+    def monthly_value(self):
+        return round(self.total_value() / self.month, 2)
 
 
 class BuyContract(Contract):
@@ -21,9 +24,6 @@ class BuyContract(Contract):
         if self.customer.employee:
             return base_sale * 0.9
         return base_sale
-            
-    def monthly_value(self):
-        return self.total_value() / self.month
 
 
 class LeaseContract(Contract):
@@ -37,7 +37,3 @@ class LeaseContract(Contract):
         if self.customer.employee:
             return base_sale * 0.9
         return base_sale
-            
-    def monthly_value(self):
-        return round(self.total_value() / self.month, 2)
-
