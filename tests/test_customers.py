@@ -9,10 +9,10 @@ class CustomerTestCase(unittest.TestCase):
         self.assertEqual(c.first_name, 'John')
         self.assertEqual(c.last_name, 'Doe')
         self.assertEqual(c.email, 'john@example.com')
-        self.assertFalse(c.is_employee())
+        self.assertFalse(isinstance(c, Employee))
 
         e = Employee('Jane', 'Doe', 'jane@example.com')
         self.assertEqual(e.first_name, 'Jane')
         self.assertEqual(e.last_name, 'Doe')
         self.assertEqual(e.email, 'jane@example.com')
-        self.assertTrue(e.is_employee())
+        self.assertTrue(isinstance(e, Employee))
