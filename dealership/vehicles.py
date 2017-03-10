@@ -1,7 +1,4 @@
 class Vehicle(object):
-    sales_multi = 1
-    purchase_multi = 1
-    
     def __init__(self, maker, model, year, base_price, miles):
         self.maker = maker
         self.model = model
