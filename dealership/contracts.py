@@ -1,5 +1,3 @@
-import customers
-import vehicles
 
 class Contract(object):
     def __init__(self, vehicle, customer):
@@ -18,7 +16,7 @@ class BuyContract(Contract):
             return (self.vehicle.sale_price() + (self.vehicle.I * self.monthly_payments * self.vehicle.sale_price()/100))
     
     def monthly_value(self):
-        return BuyContract.total_value(self)/self.monthly_payments
+        return self.total_value()/self.monthly_payments
 
 
 class LeaseContract(Contract):

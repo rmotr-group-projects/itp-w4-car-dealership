@@ -10,6 +10,7 @@ class Vehicle(object):
         return self.base_price * self.sales_modifier
     def purchase_price(self):
         return self.sale_price() - (self.P * self.miles)
+    
             
 class Car(Vehicle):
     sales_modifier = 1.2
