@@ -1,5 +1,5 @@
-from customers import *
-from vehicles import *
+from dealership.customers import *
+from dealership.vehicles import *
 
 class Contract(object):
     def total_value(self):
