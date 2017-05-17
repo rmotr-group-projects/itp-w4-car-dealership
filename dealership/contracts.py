@@ -1,5 +1,5 @@
-from vehicles import *
-from customers import *
+from dealership.vehicles import *
+from dealership.customers import *
 
 
 class Contract(object):
