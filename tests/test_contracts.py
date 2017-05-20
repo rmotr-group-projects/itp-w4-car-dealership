@@ -69,7 +69,7 @@ class BuyContractTestCase(BaseContractTestCase):
 
 
 class LeaseContractTestCase(BaseContractTestCase):
-    def test_buy_contract_total_value_with_customer(self):
+    def test_lease_contract_total_value_with_customer(self):
         car_contract = LeaseContract(
             vehicle=self.car, customer=self.customer, length_in_months=12)
 
