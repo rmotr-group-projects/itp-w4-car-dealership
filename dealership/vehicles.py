@@ -7,30 +7,26 @@ class Vehicle(object):
         self.miles = miles
 
     def sale_price(self):
-        return self.base_price * self.sale_multiplier()
+        return self.base_price * self.SALE_MULT
     
     def purchase_price(self):
-        return (self.sale_price()) - (self.miles * self.purchase_multiplier())
+        return (self.sale_price()) - (self.miles * self.PURCHASE_MULT)
         
  
  
+ 
 class Car(Vehicle):
-    def sale_multiplier(self):
-        return 1.2
+    SALE_MULT = 1.2
+    PURCHASE_MULT = 0.004
+    INTEREST_RATE = 1.07
     
-    def purchase_multiplier(self):
-        return 0.004
-
 class Motorcycle(Vehicle):
-    def sale_multiplier(self):
-        return 1.1
-    
-    def purchase_multiplier(self):
-        return 0.009
+    SALE_MULT = 1.1
+    PURCHASE_MULT = 0.009
+    INTEREST_RATE = 1.03
+
 
 class Truck(Vehicle):
-    def sale_multiplier(self):
-        return 1.6
-    
-    def purchase_multiplier(self):
-        return 0.02
+    SALE_MULT = 1.6
+    PURCHASE_MULT = 0.02
+    INTEREST_RATE = 1.11
