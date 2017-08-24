@@ -2,7 +2,6 @@ import unittest
 
 from dealership.customers import Customer, Employee
 
-
 class CustomerTestCase(unittest.TestCase):
     def test_if_are_employee(self):
         c = Customer('John', 'Doe', 'john@example.com')
