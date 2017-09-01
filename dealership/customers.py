@@ -6,15 +6,12 @@ class Person(object):
 
 
 class Customer(Person):
-
-    @staticmethod
-    def is_employee():
+    def is_employee(self):
         return False
 
 
 class Employee(Person):
-    @staticmethod
-    def is_employee():
+    def is_employee(self):
         return True
 
 
