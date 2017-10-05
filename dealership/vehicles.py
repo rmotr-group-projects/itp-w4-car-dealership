@@ -7,10 +7,20 @@ class Vehicle(object):
         self.miles = miles
 
     def sale_price(self):
-        return self.base_price * self.sale_multiplier
+        try:
+            self.sale_multiplier
+        except AttributeError:
+            print('Missing sale multiplier for vehicle type.')
+        else:
+            return self.base_price * self.sale_multiplier
     
     def purchase_price(self):
-        return self.sale_price() - (self.purchase_multiplier * self.miles)
+        try:
+            self.purchase_multiplier
+        except AttributeError:
+            print('Missing purchase multiplier for vehicle type.')
+        else:
+            return self.sale_price() - (self.purchase_multiplier * self.miles)
 
 class Car(Vehicle):
     def __init__(self, maker, model, year, base_price, miles):
