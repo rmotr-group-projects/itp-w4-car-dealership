@@ -6,14 +6,13 @@ class Contract(object):
     def __init__(self, vehicle, customer):
         self.vehicle = vehicle
         self.customer = customer
+        self.discount = 0
+        if self.customer.is_employee():
+            self.discount = 0.1
         
     def total_value(self):
         raise NotImplementedError()
         
-    def get_discount(self):
-        self.discount = 0
-        if self.customer.is_employee():
-            self.discount = 0.1
 
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
