@@ -20,15 +20,8 @@ class BuyContract(Contract):
         self.monthly_payments = monthly_payments
         
     def total_value(self):
-        
-        if isinstance(self.vehicle, Car):
-            interest = 1.07
-        elif isinstance(self.vehicle, Truck):
-            interest = 1.11
-        elif isinstance(self.vehicle, Motorcycle):
-            interest = 1.03
             
-        total = self.vehicle.sale_price() + (interest * self.monthly_payments * self.vehicle.sale_price() / 100)
+        total = self.vehicle.sale_price() + (self.vehicle.INTEREST * self.monthly_payments * self.vehicle.sale_price() / 100)
         return total - (self.discount * total)
         
     def monthly_value(self):
@@ -41,12 +34,7 @@ class LeaseContract(Contract):
         
     def total_value(self):
             
-        if isinstance(self.vehicle, Car):
-            lease_multiplier = self.vehicle.sale_price() * 1.2 / self.length_in_months
-        elif isinstance(self.vehicle, Truck):
-            lease_multiplier = self.vehicle.sale_price() * 1.7 / self.length_in_months
-        elif isinstance(self.vehicle, Motorcycle):
-            lease_multiplier = self.vehicle.sale_price() * 1 / self.length_in_months
+        lease_multiplier = self.vehicle.sale_price() * self.vehicle.SALE_MULTIPLIER / self.length_in_months
         
         total =  self.vehicle.sale_price() + lease_multiplier
         return total - (self.discount * total)
