@@ -13,6 +13,9 @@ class Contract(object):
     def total_value(self):
         raise NotImplementedError()
         
+    def monthly_value(self):
+        raise NotImplementedError()
+        
 
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
