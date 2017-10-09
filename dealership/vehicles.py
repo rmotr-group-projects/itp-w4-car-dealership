@@ -8,12 +8,27 @@ class Vehicle(object):
 
 
 class Car(Vehicle):
-    pass
-
+    def __init__(self, maker, model, year, base_price, miles):
+        Vehicle.__init__(self, maker, model, year, base_price, miles)
+        self.multiplier = { 
+            'sale': 1.2,
+            'purchase': 0.004
+        }
+ 
 
 class Motorcycle(Vehicle):
-    pass
+    def __init__(self, maker, model, year, base_price, miles):
+        Vehicle.__init__(self, maker, model, year, base_price, miles)
+        self.multiplier = { 
+            'sale': 1.1,
+            'purchase': 0.009
+        }
 
 
 class Truck(Vehicle):
-    pass
+    def __init__(self, maker, model, year, base_price, miles):
+        Vehicle.__init__(self, maker, model, year, base_price, miles)
+        self.multiplier = { 
+            'sale': 1.6,
+            'purchase': 0.02
+        }
