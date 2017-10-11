@@ -7,13 +7,12 @@ class Person(object):
 
 
 class Customer(Person):
-    
+
     def is_employee(self):
         return False
-    
 
 
 class Employee(Person):
-    
+
     def is_employee(self):
         return True
