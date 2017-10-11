@@ -14,9 +14,7 @@ class Customer(Person):
 
 
 class Employee(Person):
-    def __init__(self, first_name, last_name, email):
-        self.discount = 0.1
-        super(Employee, self).__init__(first_name, last_name, email)
+    discount = 0.1
     
     def is_employee(self):
         return True
