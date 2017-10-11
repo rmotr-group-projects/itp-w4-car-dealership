@@ -27,7 +27,7 @@ class BuyContract(Contract):
 
 
     def monthly_value(self):
-        return self.total_value() / self.monthly_payments
+        return round(self.total_value() / self.monthly_payments,3)
 
 class LeaseContract(Contract):
     def __init__(self, vehicle, customer, length_in_months):
@@ -45,4 +45,4 @@ class LeaseContract(Contract):
         return self.vehicle.sale_price() + multiplier - self.discount
 
     def monthly_value(self):
-        self.total_value() / self.length_in_months
+        return round(self.total_value() / self.length_in_months,3)
