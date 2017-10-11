@@ -14,6 +14,5 @@ class Person(object):
 class Customer(Person):
     pass
 
-
 class Employee(Person):
     pass
