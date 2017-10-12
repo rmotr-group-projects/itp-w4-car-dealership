@@ -4,7 +4,7 @@ class Contract(object):
 
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
-        pass
+        print("This is going to fix everything!")
 
 
 class LeaseContract(Contract):
