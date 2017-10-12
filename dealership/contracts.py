@@ -1,7 +1,3 @@
-from vehicles import *
-from customers import *
-
-
 class Contract(object):
 
     def __init__(self, vehicle, customer):
