@@ -9,10 +9,7 @@ class Person(object):
     # Don't know if this was the right way to do it. might be able to use self.__class__.__name__
     @classmethod
     def is_employee(cls):
-        if cls is Employee:
-            return True
-        else:
-            return False
+        return cls == Employee
 
 # Put discounts here because they will be static for every instance of these classes aka Class Attributes 
 class Customer(Person):
