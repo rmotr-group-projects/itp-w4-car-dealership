@@ -63,27 +63,3 @@ class LeaseContract(Contract):
 
     def monthly_value(self):
         return self.total_value() / self.length_in_months
-
-
-# Temporary data from tests
-car = Car(maker='Ford', model='Mustang', year=2005,
-                       base_price=18000, miles=31000)
-
-truck = Truck(maker='Chevrolet', model='Silverado', year=2014,
-                   base_price=29000, miles=3000)
-
-bike = Motorcycle(maker='Ducati', model='Monster',
-                       year=2016, base_price=18000, miles=700)
-
-customer = Customer('John', 'Doe', 'john@example.com')
-employee = Employee('Jane', 'Doe', 'jane@example.com')
-
-car_contract = BuyContract(
-            vehicle=car, customer=customer, monthly_payments=6)
-
-# print(car_contract.total_value())
-
-car_contract2 = LeaseContract(
-            vehicle=car, customer=customer, length_in_months=12)
-            
-print('car contract ', car_contract2.total_value())
