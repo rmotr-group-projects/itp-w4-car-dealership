@@ -1,5 +1,5 @@
-from vehicles import Car, Truck, Motorcycle
-from customers import Customer, Employee
+from dealership.vehicles import Car, Truck, Motorcycle
+from dealership.customers import Customer, Employee
 
 class Contract(object):
     
