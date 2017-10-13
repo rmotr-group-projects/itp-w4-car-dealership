@@ -20,6 +20,7 @@ class Contract(object):
             monthly = self.length_in_months
         return self.total_value()/ monthly
 
+# Used super to limit repeated code in both Lease and Buy Contracts
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
         super(BuyContract, self).__init__(vehicle, customer)
