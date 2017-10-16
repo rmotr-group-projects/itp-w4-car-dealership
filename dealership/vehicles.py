@@ -12,7 +12,7 @@ class Car(Vehicle):
     def __init__(self, maker, model, year, base_price, miles):
         # Inherit vehicle attributes
         super(Car, self).__init__(maker, model, year, base_price, miles)
-
+    
     def sale_price(self):
         s = 1.2
         return self.base_price * s
