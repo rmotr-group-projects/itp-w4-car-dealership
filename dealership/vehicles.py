@@ -13,9 +13,11 @@ class Car(Vehicle):
         # Inherit vehicle attributes
         super(Car, self).__init__(maker, model, year, base_price, miles)
     
+    sale_multiplier = 1.2
+    lease_multiplier = 1.2
+    
     def sale_price(self):
-        s = 1.2
-        return self.base_price * s
+        return self.base_price * self.sale_multiplier
         
     def purchase_price(self):
         p = 0.004
@@ -30,9 +32,11 @@ class Motorcycle(Vehicle):
         # Inherit vehicle attributes
         super(Motorcycle, self).__init__(maker, model, year, base_price, miles)
         
+    sale_multiplier = 1.1
+    lease_multiplier = 1
+        
     def sale_price(self):
-        s = 1.1
-        return self.base_price * s
+        return self.base_price * self.sale_multiplier
         
     def purchase_price(self):
         p = 0.009
@@ -46,9 +50,11 @@ class Truck(Vehicle):
         # Inherit vehicle attributes
         super(Truck, self).__init__(maker, model, year, base_price, miles)
         
+    sale_multiplier = 1.6
+    lease_multiplier = 1.7
+        
     def sale_price(self):
-        s = 1.6
-        return self.base_price * s
+        return self.base_price * self.sale_multiplier
         
     def purchase_price(self):
         p = 0.02
