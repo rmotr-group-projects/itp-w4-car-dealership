@@ -23,8 +23,8 @@ class BuyContract(Contract):
         self.monthly_payments = monthly_payments
         
     def total_value(self):
-            
-        total = self.vehicle.sale_price() + (self.vehicle.INTEREST * self.monthly_payments * self.vehicle.sale_price() / 100)
+        total = self.vehicle.sale_price() + \
+                (self.vehicle.INTEREST * self.monthly_payments * self.vehicle.sale_price() / 100)
         return total - (self.discount * total)
         
     def monthly_value(self):
@@ -36,8 +36,8 @@ class LeaseContract(Contract):
         self.length_in_months = length_in_months
         
     def total_value(self):
-            
-        lease_multiplier = self.vehicle.sale_price() * self.vehicle.SALE_MULTIPLIER / self.length_in_months
+        lease_multiplier = self.vehicle.sale_price() * \
+                           self.vehicle.LEASE_MULTIPLIER / self.length_in_months
         
         total =  self.vehicle.sale_price() + lease_multiplier
         return total - (self.discount * total)
