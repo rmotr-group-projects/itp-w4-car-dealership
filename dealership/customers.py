@@ -9,12 +9,14 @@ class Person(object):
 
 
 class Customer(Person):
+    DISCOUNT = 0
+    
     def is_employee(self):
         return False
 
 
 class Employee(Person):
-    discount = 0.1
+    DISCOUNT = 0.1
     
     def is_employee(self):
         return True

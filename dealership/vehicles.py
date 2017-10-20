@@ -7,37 +7,27 @@ class Vehicle(object):
         self.miles = miles
 
     def sale_price(self):
-        try:
-            self.sale_multiplier
-        except AttributeError:
-            print('Missing sale multiplier for vehicle type.')
-        else:
-            return self.base_price * self.sale_multiplier
+        return self.base_price * self.SALE_MULTIPLIER
     
     def purchase_price(self):
-        try:
-            self.purchase_multiplier
-        except AttributeError:
-            print('Missing purchase multiplier for vehicle type.')
-        else:
-            return self.sale_price() - (self.purchase_multiplier * self.miles)
+        return self.sale_price() - (self.PURCHASE_MULTIPLIER * self.miles)
 
 class Car(Vehicle):
-    sale_multiplier = 1.2
-    purchase_multiplier = 0.004
-    interest_rate = 1.07
-    lease_multiplier = 1.2
+    SALE_MULTIPLIER = 1.2
+    PURCHASE_MULTIPLIER = 0.004
+    INTEREST_RATE = 1.07
+    LEASE_MULTIPLIER = 1.2
 
 
 class Motorcycle(Vehicle):
-    sale_multiplier = 1.1
-    purchase_multiplier = 0.009
-    interest_rate = 1.03
-    lease_multiplier = 1
+    SALE_MULTIPLIER = 1.1
+    PURCHASE_MULTIPLIER = 0.009
+    INTEREST_RATE = 1.03
+    LEASE_MULTIPLIER = 1
 
 
 class Truck(Vehicle):
-    sale_multiplier = 1.6
-    purchase_multiplier = 0.02
-    interest_rate = 1.11
-    lease_multiplier = 1.7
+    SALE_MULTIPLIER = 1.6
+    PURCHASE_MULTIPLIER = 0.02
+    INTEREST_RATE = 1.11
+    LEASE_MULTIPLIER = 1.7
