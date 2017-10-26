@@ -1,7 +1,6 @@
 import customers 
 import vehicles 
 
-
 class Contract(object):
     
     def __init__(self, vehicle, customer):
