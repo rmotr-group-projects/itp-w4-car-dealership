@@ -1,5 +1,5 @@
-import customers 
-import vehicles 
+import .customers 
+import .vehicles 
 
 
 class Contract(object):
