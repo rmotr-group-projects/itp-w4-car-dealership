@@ -14,7 +14,7 @@ class Contract(object):
 
 
 class BuyContract(Contract):
-    interest_rates = {
+    INTEREST_RATES = {
         Car: 1.07,
         Motorcycle: 1.03,
         Truck: 1.11,
@@ -25,7 +25,7 @@ class BuyContract(Contract):
         self.monthly_payments = monthly_payments
 
     def total_value(self):
-        return (self.vehicle.sale_price() + BuyContract.interest_rates[type(self.vehicle)]
+        return (self.vehicle.sale_price() + BuyContract.INTEREST_RATES[type(self.vehicle)]
                 * self.monthly_payments * self.vehicle.sale_price() / 100) * (0.9 if self.customer.is_employee() else 1)
 
     def monthly_value(self):
@@ -33,7 +33,7 @@ class BuyContract(Contract):
 
 
 class LeaseContract(Contract):
-    lease_multiplier_percentage = {
+    LEASE_MULTIPLIER_PERCENTAGE = {
         Car: 1.2,
         Motorcycle: 1,
         Truck: 1.7
@@ -47,7 +47,7 @@ class LeaseContract(Contract):
         return self.vehicle.sale_price() + self.get_lease_multiplier() * (0.9 if self.customer.is_employee() else 1)
 
     def get_lease_multiplier(self):
-        return self.vehicle.sale_price() * LeaseContract.lease_multiplier_percentage[
+        return self.vehicle.sale_price() * LeaseContract.LEASE_MULTIPLIER_PERCENTAGE[
             type(self.vehicle)] / self.length_in_months
 
     def monthly_value(self):
