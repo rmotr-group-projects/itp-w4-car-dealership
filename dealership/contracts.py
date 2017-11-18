@@ -33,7 +33,8 @@ class LeaseContract(Contract):
 
     def total_value(self):
         total_value = self.vehicle.sale_price() + \
-        (self.vehicle.sale_price() * self.vehicle.lease_multiplier / self.length_in_months)
+        (self.vehicle.sale_price() * self.vehicle.lease_multiplier \
+        / self.length_in_months)
         if self.customer.is_employee():
             total_value -= (total_value * 0.1)
         return total_value
