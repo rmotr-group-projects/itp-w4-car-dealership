@@ -1,4 +1,8 @@
 class Contract(object):
+    def __init__(self, vehicle, customer):
+        self.vehicle = vehicle
+        self.customer = customer
+
     def total_value():
         raise NotImplementedError
     
@@ -8,8 +12,7 @@ class Contract(object):
 
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
-        self.vehicle = vehicle
-        self.customer = customer
+        super(BuyContract, self).__init__(vehicle, customer)
         self.monthly_payments = monthly_payments
 
     def total_value(self):
@@ -22,13 +25,11 @@ class BuyContract(Contract):
     
     def monthly_value(self):
         return self.total_value() / self.monthly_payments
-        
 
 
 class LeaseContract(Contract):
     def __init__(self, vehicle, customer, length_in_months):
-        self.vehicle = vehicle
-        self.customer = customer
+        super(LeaseContract, self).__init__(vehicle, customer)
         self.length_in_months = length_in_months
 
     def total_value(self):
@@ -41,5 +42,3 @@ class LeaseContract(Contract):
     
     def monthly_value(self):
         return self.total_value() / self.length_in_months
-
-
