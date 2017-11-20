@@ -11,42 +11,35 @@ class Vehicle(object):
 class Car(Vehicle):
 
     def __init__(self, maker, model, year, base_price, miles):
-
         Vehicle.__init__(self, maker, model, year, base_price, miles)
 
     def sale_price(self):
-
         return self.base_price * 1.2
 
-
-# STOPEED HERE, implement purchase price for others and test
     def purchase_price(self):
-        """The price the dealership will pay a customer to buy her/his vehicle"""
-
         return self.sale_price() - (0.004 * self.miles)
-
-
-
 
 
 class Motorcycle(Vehicle):
 
     def __init__(self, maker, model, year, base_price, miles):
-
         Motorcycle.__init__(self, maker, model, year, base_price, miles)
 
     def sale_price(self):
-
         return self.base_price * 1.1
+
+    def purchase_price(self):
+        return self.sale_price() - (0.009 * self.miles)
 
 
 class Truck(Vehicle):
 
     def __init__(self, maker, model, year, base_price, miles):
-
         Truck.__init__(self, maker, model, year, base_price, miles)
 
     def sale_price(self):
-
         return self.base_price * 1.6
+
+    def purchase_price(self):
+        return self.sale_price() - (0.004 * self.miles)
 
