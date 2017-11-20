@@ -8,20 +8,12 @@ class Person(object):
 
 class Customer(Person):
 
-    def __init__(self, first_name, last_name, email):
-
-        Person.__init__(self, first_name, last_name, email)
-
     def is_employee(self):
 
         return False
 
 
 class Employee(Person):
-
-    def __init__(self, first_name, last_name, email):
-
-        Person.__init__(self, first_name, last_name, email)
 
     def is_employee(self):
 
