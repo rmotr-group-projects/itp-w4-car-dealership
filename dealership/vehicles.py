@@ -16,9 +16,6 @@ class Vehicle(object):
 
 class Car(Vehicle):
 
-    def __init__(self, maker, model, year, base_price, miles):
-        Vehicle.__init__(self, maker, model, year, base_price, miles)
-
     def get_sale_multiplier(self):
         return 1.2
 
@@ -27,9 +24,6 @@ class Car(Vehicle):
 
 
 class Motorcycle(Vehicle):
-
-    def __init__(self, maker, model, year, base_price, miles):
-        Vehicle.__init__(self, maker, model, year, base_price, miles)
 
     def get_sale_multiplier(self):
         return 1.1
@@ -40,12 +34,8 @@ class Motorcycle(Vehicle):
 
 class Truck(Vehicle):
 
-    def __init__(self, maker, model, year, base_price, miles):
-        Vehicle.__init__(self, maker, model, year, base_price, miles)
-
     def get_sale_multiplier(self):
         return 1.6
 
     def get_purchase_multiplier(self):
         return 0.02
-
