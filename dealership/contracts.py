@@ -44,19 +44,15 @@ class LeaseContract(Contract):
         self.length_in_months = length_in_months
 
     def total_value(self):
+
+        lease_multipliers = {'Car': 1.2, 'Motorcycle': 1, 'Truck': 1.7}
+
         vehicle_sale_price = self.vehicle.sale_price()
 
         vehicle_type = type(self.vehicle).__name__
-        if vehicle_type == 'Car':
-            lease_multiplier = vehicle_sale_price * 1.2 / self.length_in_months
+        lease_multiplier = lease_multipliers[vehicle_type]
 
-        elif vehicle_type == 'Motorcycle':
-            lease_multiplier = vehicle_sale_price / self.length_in_months
-
-        elif vehicle_type == 'Truck':
-            lease_multiplier = vehicle_sale_price * 1.7 / self.length_in_months
-
-        leasecontract_value = vehicle_sale_price + lease_multiplier
+        leasecontract_value = vehicle_sale_price + (vehicle_sale_price * lease_multiplier / self.length_in_months)
 
         # apply discount if an employee
         if self.customer.is_employee():
