@@ -8,6 +8,11 @@ class Contract(object):
     
     def monthly_value():
         raise NotImplementedError
+    
+    def apply_discount(self, value):
+        if self.customer.is_employee():
+            value -= (value * 0.1)
+        return value
 
 
 class BuyContract(Contract):
@@ -19,9 +24,7 @@ class BuyContract(Contract):
         total_value = self.vehicle.sale_price() + \
             (self.vehicle.MONTHLY_INTEREST_RATE * \
             self.monthly_payments * self.vehicle.sale_price() / 100)
-        if self.customer.is_employee():
-            total_value -= (total_value * 0.1)
-        return total_value
+        return self.apply_discount(total_value)
     
     def monthly_value(self):
         return self.total_value() / self.monthly_payments
@@ -36,9 +39,7 @@ class LeaseContract(Contract):
         total_value = self.vehicle.sale_price() + \
         (self.vehicle.sale_price() * self.vehicle.LEASE_MULTIPLIER \
         / self.length_in_months)
-        if self.customer.is_employee():
-            total_value -= (total_value * 0.1)
-        return total_value
+        return self.apply_discount(total_value)
     
     def monthly_value(self):
         return self.total_value() / self.length_in_months
