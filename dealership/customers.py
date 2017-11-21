@@ -12,6 +12,7 @@ class Customer(Person):
     
     def is_employee(self):
         return False
+        raise NotImplementedError()
 
 class Employee(Person):
     def __init__(self, first_name, last_name, email):
@@ -20,3 +21,5 @@ class Employee(Person):
     def is_employee(self):
         return True
         
+    def is_customer(self):
+        return False
