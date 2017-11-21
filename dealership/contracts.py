@@ -20,8 +20,7 @@ class BuyContract(Contract):
         vehicle_sale_price = self.vehicle.sale_price()
 
         # get interest rate depending on vehicly type
-        vehicle_type = type(self.vehicle).__name__
-        I_rate = interest_rates[vehicle_type]
+        I_rate = interest_rates[type(self.vehicle).__name__]
 
         # value before any discounts
         buycontract_value = vehicle_sale_price + (I_rate * self.monthly_payments * vehicle_sale_price) / 100
@@ -49,8 +48,7 @@ class LeaseContract(Contract):
 
         vehicle_sale_price = self.vehicle.sale_price()
 
-        vehicle_type = type(self.vehicle).__name__
-        lease_multiplier = lease_multipliers[vehicle_type]
+        lease_multiplier = lease_multipliers[type(self.vehicle).__name__]
 
         leasecontract_value = vehicle_sale_price + (vehicle_sale_price * lease_multiplier / self.length_in_months)
 
