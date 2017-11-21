@@ -15,7 +15,10 @@ class Vehicle(object):
 
 
 class Car(Vehicle):
+    # no need to define __init__ here since Car will inherit all attributes of Vehicle
+    # while introducing its own (constant) attributes
 
+    # we call __init__ on the parent class here if we want to extend the __init__ in the parent class. That is, if we wanted Car to have an additional attribute (say presence of a sunroof) beyond maker, model, year, base_price, and miles.
     sale_multiplier = 1.2
     purchase_multiplier = 0.004
 
