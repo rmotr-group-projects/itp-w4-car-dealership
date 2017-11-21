@@ -38,12 +38,14 @@ class BuyContract(Contract):
             return value
 
     def monthly_value(self):
-        pass
+        return self.total_value() / self.monthly_payments
 
 
 class LeaseContract(Contract):
     def __init__(self, vehicle, customer, length_in_months):
-        pass
+        self.vehicle = vehicle
+        self.customer = customer
+        self.length_in_months = length_in_months
 
     def total_value(self):
         pass
