@@ -27,15 +27,15 @@ class BuyContract(Contract):
             I_rate = 1.11
 
         # value before any discounts
-        value = vehicle_sale_price + (I_rate * self.monthly_payments * vehicle_sale_price) / 100
+        buycontract_value = vehicle_sale_price + (I_rate * self.monthly_payments * vehicle_sale_price) / 100
 
         # apply discount if an employee
         employee_status = self.customer.is_employee()
         if employee_status:
-            return .90 * value
+            return .90 * buycontract_value
 
         else:
-            return value
+            return buycontract_value
 
     def monthly_value(self):
         return self.total_value() / self.monthly_payments
@@ -48,7 +48,28 @@ class LeaseContract(Contract):
         self.length_in_months = length_in_months
 
     def total_value(self):
-        pass
+        # vehicle.sale_price() + (lease_multiplier) - (discount if employee)
+        vehicle_sale_price = self.vehicle.sale_price()
+
+        vehicle_type = type(self.vehicle).__name__
+        if vehicle_type == 'Car':
+            lease_multiplier = vehicle_sale_price * 1.2 / self.length_in_months
+
+        elif vehicle_type == 'Motorcycle':
+            lease_multiplier = vehicle_sale_price / self.length_in_months
+
+        elif vehicle_type == 'Truck':
+            lease_multiplier = vehicle_sale_price * 1.7 / self.length_in_months
+
+        leasecontract_value = vehicle_sale_price + lease_multiplier
+
+        # apply discount if an employee
+        employee_status = self.customer.is_employee()
+        if employee_status:
+            return .90 * leasecontract_value
+
+        else:
+            return leasecontract_value
 
     def monthly_value(self):
-        pass
+        return self.total_value() / self.length_in_months
