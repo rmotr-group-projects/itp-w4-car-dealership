@@ -4,7 +4,9 @@ class Contract(object):
 
 class BuyContract(Contract):
     def __init__(self, vehicle, customer, monthly_payments):
-        pass
+        self.vehicle = vehicle
+        self.customer = customer
+        self.payment = monthly_payments
 
 
 class LeaseContract(Contract):
