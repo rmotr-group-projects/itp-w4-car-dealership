@@ -15,18 +15,13 @@ class BuyContract(Contract):
 
     def total_value(self):
 
+        interest_rates = {'Car': 1.07, 'Motorcycle': 1.03, 'Truck': 1.11}
+
         vehicle_sale_price = self.vehicle.sale_price()
 
         # get interest rate depending on vehicly type
         vehicle_type = type(self.vehicle).__name__
-        if vehicle_type == 'Car':
-            I_rate = 1.07
-
-        elif vehicle_type == 'Motorcycle':
-            I_rate = 1.03
-
-        elif vehicle_type == 'Truck':
-            I_rate = 1.11
+        I_rate = interest_rates[vehicle_type]
 
         # value before any discounts
         buycontract_value = vehicle_sale_price + (I_rate * self.monthly_payments * vehicle_sale_price) / 100
