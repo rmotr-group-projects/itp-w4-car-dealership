@@ -9,6 +9,11 @@ class Contract(object):
 
 class BuyContract(Contract):
 
+    # The __init__ here is required because we are extending
+    # the init of the parent (Contract) class
+    # Contract.__init__(self, vehicle, customer) activates the
+    # attributes of the parent class
+
     def __init__(self, vehicle, customer, monthly_payments):
         Contract.__init__(self, vehicle, customer)
         self.monthly_payments = monthly_payments
