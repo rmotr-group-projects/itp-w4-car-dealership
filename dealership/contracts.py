@@ -2,13 +2,15 @@ class Contract(object):
 
     employee_discount = 0.1
 
+    def __init__(self, vehicle, customer):
+        self.customer = customer
+        self.vehicle = vehicle
+
 
 class BuyContract(Contract):
 
     def __init__(self, vehicle, customer, monthly_payments):
-
-        self.customer = customer
-        self.vehicle = vehicle
+        Contract.__init__(self, vehicle, customer)
         self.monthly_payments = monthly_payments
 
     def total_value(self):
@@ -30,9 +32,8 @@ class BuyContract(Contract):
         buycontract_value = vehicle_sale_price + (I_rate * self.monthly_payments * vehicle_sale_price) / 100
 
         # apply discount if an employee
-        employee_status = self.customer.is_employee()
-        if employee_status:
-            return .90 * buycontract_value
+        if self.customer.is_employee():
+            return (1 - self.employee_discount) * buycontract_value
 
         else:
             return buycontract_value
@@ -42,13 +43,12 @@ class BuyContract(Contract):
 
 
 class LeaseContract(Contract):
+
     def __init__(self, vehicle, customer, length_in_months):
-        self.vehicle = vehicle
-        self.customer = customer
+        Contract.__init__(self, vehicle, customer)
         self.length_in_months = length_in_months
 
     def total_value(self):
-        # vehicle.sale_price() + (lease_multiplier) - (discount if employee)
         vehicle_sale_price = self.vehicle.sale_price()
 
         vehicle_type = type(self.vehicle).__name__
@@ -64,9 +64,8 @@ class LeaseContract(Contract):
         leasecontract_value = vehicle_sale_price + lease_multiplier
 
         # apply discount if an employee
-        employee_status = self.customer.is_employee()
-        if employee_status:
-            return .90 * leasecontract_value
+        if self.customer.is_employee():
+            return (1 - self.employee_discount) * leasecontract_value
 
         else:
             return leasecontract_value
