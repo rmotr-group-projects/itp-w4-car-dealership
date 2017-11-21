@@ -52,7 +52,6 @@ class LeaseContract(Contract):
 
         leasecontract_value = vehicle_sale_price + (vehicle_sale_price * lease_multiplier / self.length_in_months)
 
-        # apply discount if an employee
         if self.customer.is_employee():
             return (1 - self.employee_discount) * leasecontract_value
 
