@@ -44,7 +44,7 @@ A `BuyContract` is created by passing the following attributes:
 * `vehicle`: The vehicle involved in the transaction.
 * `monthly_payments`: How many months the customer is going to take to pay for the whole contract. Example, if `monthly_payments` is 2, the customer will take two months to pay for it.
 
-The `total_value()` of a `BuyContract` will be computed in this way: `vehicle.sale_price() + (I * monthly_payments * sale_price() / 100) - (discount if employee)`. In this case `I` is the interest rate applied and it will vary depending of the type of vehicle:
+The `total_value()` of a `BuyContract` will be computed in this way: `	`. In this case `I` is the interest rate applied and it will vary depending of the type of vehicle:
 
 * `Car`: 7% monthly (1.07)
 * `Motorcycle`: 3% monthly (1.03)
