@@ -29,5 +29,23 @@ class BuyContract(Contract):
         
 class LeaseContract(Contract):
     def __init__(self, vehicle, customer, length_in_months):
-        pass
+        self.vehicle = vehicle
+        self.customer = customer
+        self.length = length_in_months
 
+    def total_value(self):
+    	if isinstance(self.vehicle, Car):
+    		m = self.vehicle.sale_price() * 1.2 / self.length
+    	if isinstance(self.vehicle, Motorcycle):
+    		m = self.vehicle.sale_price() * 1 / self.length
+    	if isinstance(self.vehicle, Truck):
+    		m = self.vehicle.sale_price() * 1.7 / self.length
+    	if isinstance(self.customer, Employee):
+    		d = 0.9
+    	if isinstance(self.customer, Customer):
+    		d = 1
+
+    	return vehicle.sale_price() + (lease_multiplier) * d
+
+    def monthly_value(self):
+    	return self.total_value() / self.length
