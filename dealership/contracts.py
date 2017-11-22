@@ -22,7 +22,7 @@ class BuyContract(Contract):
     	if isinstance(self.customer, Customer):
     		d = 1
 
-    	return self.vehicle.sale_price() + (i * self.payment * self.vehicle.sale_price() / 100) * d
+    	return (self.vehicle.sale_price() + (i * self.payment * self.vehicle.sale_price() / 100)) * d
     	
     def monthly_value(self):
         return self.total_value() / self.payment
@@ -45,7 +45,7 @@ class LeaseContract(Contract):
     	if isinstance(self.customer, Customer):
     		d = 1
 
-    	return vehicle.sale_price() + (lease_multiplier) * d
+    	return (self.vehicle.sale_price() + m) * d
 
     def monthly_value(self):
     	return self.total_value() / self.length
