@@ -1,5 +1,5 @@
-from customers import Customer, Employee
-from vehicles import Car, Truck, Motorcycle
+from .customers import Customer, Employee
+from .vehicles import Car, Truck, Motorcycle
 
 
 class Contract(object):
