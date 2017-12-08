@@ -5,11 +5,11 @@ class Vehicle(object):
         self.year=year
         self.base_price=base_price
         self.miles=miles
-    
-    def sale_price():
+        
+    def sale_price(self):
         raise NotImplementedError
     
-    def purchase_price():
+    def purchase_price(self):
         raise NotImplementedError
         
 class Car(Vehicle):
@@ -17,7 +17,10 @@ class Car(Vehicle):
         return self.base_price*1.2
     
     def purchase_price(self):
-        return self.sale_price()-[0.004*self.miles]
+        return self.sale_price()-(0.004*self.miles)
+    
+    def __repr__(self):
+        return 'Car'
 
 
 class Motorcycle(Vehicle):
@@ -25,7 +28,10 @@ class Motorcycle(Vehicle):
         return self.base_price*1.1
     
     def purchase_price(self):
-        return self.sale_price()-[0.009*self.miles]
+        return self.sale_price()-(0.009*self.miles)
+    
+    def __repr__(self):
+        return 'Motorcycle'
 
 
 class Truck(Vehicle):
@@ -33,4 +39,7 @@ class Truck(Vehicle):
         return self.base_price*1.6
     
     def purchase_price(self):
-        return self.sale_price()-[0.02*self.miles]
+        return self.sale_price()-(0.02*self.miles)
+    
+    def __repr__(self):
+        return 'Truck'

@@ -1,38 +1,39 @@
 class Contract(object):
-    def total_volue(object):
+    def total_volue(self):
         raise NotImplementedError
         
-    def monthly_value(object):
+    def monthly_value(self):
         raise NotImplementedError
-        
+     
+    interest_rate = 0
+    discount = 0
+    lease_multiplier = 0
 
 
 class BuyContract(Contract):
+    
     def __init__(self, vehicle, customer, monthly_payments):
         self.vehicle=vehicle
+        self._vehicle_class_name = vehicle.__class__.__name__
         self.customer=customer
         self.monthly_payments=monthly_payments
     
-    def total_volue(object):
-        if self.vehicle == Car:
-            interest_rate=1.07
-        elif self.vehicle == Motorcycle:
-            interest_rate=1.03
-        elif self.vehicle== Truck:
-            interest_rate=1.11
-        
-        if self.customer=employee:
-            discount=0.1
-        else:
-            discount=0
-        
-        total_value_buy = self.sale_price + ((interest_rate - discount) * self.sale_price * self.monthly_payments )//100)
-        
-        return total_value_buy
-        
-    def monthly_value(object):
-        return self.total_value / self.monthly_payments
+    def total_value(self):
+        if str(self.vehicle.__class__) == 'Car':
+            interest_rate = 1.07
+        elif str(self.vehicle.__class__) == 'Motorcycle':
+            interest_rate = 1.03
+        elif str(self.vehicle.__class__) == 'Truck':
+            interest_rate = 1.11
 
+        if str(self.customer.__class__) == 'Customer':
+            discount=0.1
+
+        return (self.vehicle.sale_price() + ((self.interest_rate * self.monthly_payments * self.vehicle.sale_price()) / 100) - self.discount)
+        
+
+    def monthly_value(self):
+        return (self.total_value() / self.monthly_payments)
 
 class LeaseContract(Contract):
     def __init__(self, vehicle, customer, length_in_months):
@@ -40,22 +41,19 @@ class LeaseContract(Contract):
         self.customer=customer
         self.length_in_months=length_in_months
         
-    def total_volue(object):
-        If self.vehicle == Car:
-            lease_multiplier=1.2
-        elif self.vehicle == Motorcycle:
-            lease_multiplier=1
-        elif self.vehicle== Truck:
-            lease_multiplier=1.7
+    def total_value(self):
+
+        if str(self.vehicle.__class__) == 'Car':
+            lease_multiplier = 1.2
+        elif str(self.vehicle.__class__) == 'Motorcycle':
+            lease_multiplier = 1
+        elif str(self.vehicle.__class__) == 'Truck':
+            lease_multiplier = 1.7
         
-        if self.customer=employee:
-            discount=0.1
-        else:
-            discount=0
+        if str(self.customer.__class__) == 'Customer':
+            discount = 0.1
     
-    total_value_lease = self.sale_price + (self.sale_price * lease_multiplier - discount)
-    
-    return total_value_lease
+        return (self.vehicle.sale_price() * (self.lease_multiplier - self.discount))
         
-    def monthly_value(object):
-        return self.total_value / self.monthly_payments
+    def monthly_value(self):
+        return (self.total_value() / self.length_in_months)

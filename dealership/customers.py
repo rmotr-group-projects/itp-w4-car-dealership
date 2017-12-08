@@ -4,15 +4,13 @@ class Person(object):
         self.last_name=last_name
         self.email=email
     
-    def is_employee(object):
+    def is_employee(self):
         not NotImplementedError
         
 
 class Customer(Person):
     def is_employee(self):
         return False
-        
-
 
 class Employee(Person):
     def is_employee(self):
