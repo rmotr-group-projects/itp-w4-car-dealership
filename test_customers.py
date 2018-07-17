@@ -1,6 +1,11 @@
 from dealership.customers import Customer, Employee
 
+"""
+Checks to see if the Customer and Employee object are created correctly.
 
+For Customer object, then `is_employee` method should return false
+For Employee object, then `is_employee` method should return true
+"""
 def test_if_are_employee():
     c = Customer('John', 'Doe', 'john@example.com')
     assert c.first_name == 'John'
